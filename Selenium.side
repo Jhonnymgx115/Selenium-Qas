@@ -1,0 +1,53 @@
+{
+  "id": "steamdb_test_project",
+  "version": "2.0",
+  "name": "SteamDB Test",
+  "url": "https://steamdb.info/",
+  "tests": [
+    {
+      "id": "search_game_test",
+      "name": "Search Game Test",
+      "commands": [
+        {
+          "id": "open_homepage",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "id": "click_search_box",
+          "command": "click",
+          "target": "css=header input[type='search']",
+          "value": ""
+        },
+        {
+          "id": "type_game_name",
+          "command": "type",
+          "target": "css=header input[type='search']",
+          "value": "Cyberpunk 2077"
+        },
+        {
+          "id": "press_enter",
+          "command": "sendKeys",
+          "target": "css=header input[type='search']",
+          "value": "${KEY_ENTER}"
+        },
+        {
+          "id": "verify_page_title",
+          "command": "assertTitle",
+          "target": "Cyberpunk 2077 · SteamDB",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "steamdb_suite",
+      "name": "SteamDB Suite",
+      "tests": ["search_game_test"]
+    }
+  ],
+  "urls": ["https://steamdb.info/"],
+  "plugins": []
+}
